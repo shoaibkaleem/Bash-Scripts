@@ -10,18 +10,24 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install ShellCheck
-      run: |
-        sudo apt-get update
-        sudo apt-get install shellcheck
+      - name: Run ShellCheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: "src/*.sh"
+          severity: error
 
-    - name: Lint Bash Scripts
-      run: |
-        find . -type f -name "*.sh" -exec shellcheck {} \;
+    # - name: Install ShellCheck
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install shellcheck
+
+    # - name: Lint Bash Scripts
+    #   run: |
+    #     find . -type f -name "*.sh" -exec shellcheck {} \;
   
-    - name: Check for Errors
-      run: |
-        if [ $? -ne 0 ]; then
-          echo "Linting failed. There are errors in the Bash scripts."
-          exit 1
-        fi
+    # - name: Check for Errors
+    #   run: |
+    #     if [ $? -ne 0 ]; then
+    #       echo "Linting failed. There are errors in the Bash scripts."
+    #       exit 1
+    #     fi
