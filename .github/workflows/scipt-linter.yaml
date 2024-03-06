@@ -14,7 +14,7 @@ jobs:
       uses: azohra/shell-linter@latest
       with:
         path: "*.sh"
-        severity: error
+        severity: "error"
 
     # - name: Install ShellCheck
     #   run: |
