@@ -18,3 +18,10 @@ jobs:
     - name: Lint Bash Scripts
       run: |
         find . -type f -name "*.sh" -exec shellcheck {} \;
+  
+    - name: Check for Errors
+      run: |
+        if [ $? -ne 0 ]; then
+          echo "Linting failed. There are errors in the Bash scripts."
+          exit 1
+        fi
