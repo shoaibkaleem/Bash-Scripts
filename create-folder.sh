@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 
 if [ ! -d /home/shoaib/docker/ ]; then
   mkdir -p /home/shoaib/docker;
