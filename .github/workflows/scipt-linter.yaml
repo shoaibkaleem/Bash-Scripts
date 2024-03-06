@@ -1,0 +1,20 @@
+name: Bash Script Lint
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install ShellCheck
+      run: |
+        sudo apt-get update
+        sudo apt-get install shellcheck
+
+    - name: Lint Bash Scripts
+      run: |
+        find . -type f -name "*.sh" -exec shellcheck {} \;
