@@ -1,6 +1,6 @@
 name: Bash Script Lint
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   lint:
@@ -13,7 +13,7 @@ jobs:
     - name: Run ShellCheck
       uses: azohra/shell-linter@latest
       with:
-        path: "src/*.sh"
+        path: "*.sh"
         severity: error
 
     # - name: Install ShellCheck
