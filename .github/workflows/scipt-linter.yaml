@@ -10,11 +10,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-      - name: Run ShellCheck
-        uses: azohra/shell-linter@latest
-        with:
-          path: "src/*.sh"
-          severity: error
+    - name: Run ShellCheck
+      uses: azohra/shell-linter@latest
+      with:
+        path: "src/*.sh"
+        severity: error
 
     # - name: Install ShellCheck
     #   run: |
